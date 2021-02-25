@@ -2,6 +2,7 @@
 # Django
 django==3.1.7
 django-environ==0.4.5
+django-colorfield==0.4.1
 
 # Rest framework
 djangorestframework==3.12.2
