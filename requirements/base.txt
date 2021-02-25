@@ -1,0 +1,14 @@
+
+# Django
+django==3.1.7
+django-environ==0.4.5
+
+# Rest framework
+djangorestframework==3.12.2
+djangorestframework-simplejwt==4.6.0
+drf-extensions==0.7.0
+
+# Other
+psycopg2==2.8.6
+boto3==1.17.14
+

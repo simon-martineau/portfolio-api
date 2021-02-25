@@ -1,0 +1,12 @@
+language: minimal
+
+
+services:
+    - docker
+
+script:
+    - docker-compose run api flake8
+    - docker-compose run api sh -c "coverage run --source='.' manage.py test && coverage xml"
+
+after_success:
+    - bash <(curl -s https://codecov.io/bash)

@@ -1,0 +1,9 @@
+**/.idea
+#/instance/prod.env
+/data/
+/instance/
+/staticfiles/
+/media/
+
+*__pycache__
+/projects_api/static/

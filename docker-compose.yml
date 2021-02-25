@@ -1,0 +1,49 @@
+version: "3.7"
+
+services:
+    api:
+        container_name: projects_api_django
+        build:
+            context: .
+            dockerfile: compose/dev/django/Dockerfile
+        environment:
+            - ENV_PATH=./instance/development.env
+        expose:
+            - 8000
+        volumes:
+            - ./:/code
+            - static_volume:/var/www/static
+            - media_volume:/code/media
+        command: /start.sh
+        depends_on:
+            - postgres
+
+    postgres:
+        container_name: projects_api_postgres
+        image: postgres:12.0-alpine
+        environment:
+            - POSTGRES_DB=projects_api
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=devpassword
+        ports:
+            - 5444:5432  # this is not used by other containers, its purpose is to be able to query the database from outside easily
+        volumes:
+            - postgres_data:/var/lib/postgresql/data/
+
+    nginx:
+        build:
+            context: compose/dev/nginx
+        container_name: projects_api_nginx
+        ports:
+            - 8000:80
+        volumes:
+            - static_volume:/home/app/web/static
+            - media_volume:/home/app/web/media
+        depends_on:
+            - api
+
+
+volumes:
+    postgres_data:
+    static_volume:
+    media_volume:

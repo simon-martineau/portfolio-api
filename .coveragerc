@@ -1,0 +1,8 @@
+[run]
+omit =
+	projects_api/*
+	manage.py
+	*_unused.py
+	apps/core/management/*
+  apps/core/testing/*
+

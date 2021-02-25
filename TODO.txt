@@ -1,0 +1,2 @@
+Look into collectfast
+Look into django cors headers
