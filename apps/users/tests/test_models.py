@@ -1,7 +1,7 @@
 from django.test import TestCase
 
 from apps.users.models import User, get_default_profile_username
-from apps.core.testing.factories import UserFactory
+from apps.core.utils.test.factories import UserFactory
 
 
 class UserModelTests(TestCase):

@@ -1,7 +1,7 @@
 from unittest.mock import patch
 from django.test import TestCase
 
-from apps.core.testing.factories import UserFactory
+from apps.core.utils.test.factories import UserFactory
 
 
 class UsersSignalsTests(TestCase):

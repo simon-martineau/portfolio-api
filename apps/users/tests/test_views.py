@@ -3,8 +3,8 @@ from rest_framework.test import APIClient
 from rest_framework import status
 
 from apps.users.models import User
-from apps.core.testing.factories import UserFactory
-from apps.core.testing.utils import APITestCase
+from apps.core.utils.test.factories import UserFactory
+from apps.core.utils.test import APITestCase
 
 CREATE_USER_URL = reverse('users:register')
 TOKEN_OBTAIN_URL = reverse('token_obtain_pair')

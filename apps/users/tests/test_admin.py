@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
 
-from apps.core.testing.factories import UserFactory
+from apps.core.utils.test.factories import UserFactory
 
 
 class AdminSiteUserTests(TestCase):
