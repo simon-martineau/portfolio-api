@@ -11,4 +11,5 @@ drf-extensions==0.7.0
 # Other
 psycopg2==2.8.6
 boto3==1.17.14
+Pillow==8.1.0
 

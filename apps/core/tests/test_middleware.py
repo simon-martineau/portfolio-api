@@ -39,6 +39,6 @@ class HideAdminMiddlewareTests(TestCase):
 
     def test_middleware_allows_unspecified_for_other_than_admin(self, mock):
         """Test that the middleware does not block other urls than /admin/*"""
-        response = self.client.options(reverse('users:register'), HTTP_X_FORWARDED_FOR='123.123.123.123')
+        response = self.client.options(reverse('api-root'), HTTP_X_FORWARDED_FOR='123.123.123.123')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertTrue(mock.called)

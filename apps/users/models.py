@@ -1,9 +1,5 @@
-import secrets
-
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
-
-from apps.core.exceptions import AlreadyExistsException, IllegalCallException
 
 
 class UserManager(BaseUserManager):
@@ -37,34 +33,3 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
-
-
-def get_default_profile_username() -> str:
-    """Generates a default username"""
-    while True:
-        username = 'guest' + secrets.token_hex(4)
-        if not Profile.objects.filter(username=username).exists():
-            break
-    return username
-
-
-class Profile(models.Model):
-    """Profile associated to each user"""
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    username = models.CharField(max_length=255, unique=True, default=get_default_profile_username)
-    is_username_chosen = models.BooleanField(default=False)  # If the user chose their name or still use the default one
-
-    def __str__(self):
-        return f'{self.username} ({self.user.email})'
-
-    def set_username(self, username: str) -> None:
-        """Sets the username. Returns false is the username already exists"""
-        if self.is_username_chosen:
-            raise IllegalCallException(
-                "The username cannot be changed because the field is_username_chosen is set to true")
-        exists = Profile.objects.filter(username=username).exists()
-        if exists:
-            raise AlreadyExistsException("The username provided already exists")
-        self.username = username
-        self.is_username_chosen = True
-        self.save(update_fields=['username', 'is_username_chosen'])

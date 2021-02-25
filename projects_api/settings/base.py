@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
     'apps.core',
     'apps.users',
+    'apps.projects',
 ]
 
 # REST_FRAMEWORK
