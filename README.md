@@ -1,9 +1,8 @@
 # Portfolio projects api
-##### Rest api for projects
-
-Make sure to look at the [pycharm config](ideaConfig.md) for django integrations.
+A rest api for portfolio projects build with [Django rest framework](https://github.com/encode/django-rest-framework)
 
 ## Development
+Make sure to look at the [pycharm config](ideaConfig.md) for django integrations.
 ### Requirements
 The following installations are required:
 - docker ([installation](https://docs.docker.com/get-docker/))
