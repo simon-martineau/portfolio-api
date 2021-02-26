@@ -8,6 +8,10 @@ services:
             dockerfile: compose/dev/django/Dockerfile
         environment:
             - ENV_PATH=./instance/development.env
+            - POSTGRES_HOST=projects_api_postgres
+            - POSTGRES_DB=postgres
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=devpassword
         expose:
             - 8000
         volumes:
