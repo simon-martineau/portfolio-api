@@ -1,5 +1,5 @@
 # Portfolio projects api
-A rest api for portfolio projects build with [Django rest framework](https://github.com/encode/django-rest-framework)
+A rest api for portfolio projects build with [django rest framework](https://github.com/encode/django-rest-framework)
 
 ## Development
 Make sure to look at the [pycharm config](ideaConfig.md) for django integrations.
