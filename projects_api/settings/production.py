@@ -44,7 +44,7 @@ MIDDLEWARE.insert(1, 'apps.core.middleware.HideAdminMiddleware')  # Insert after
 
 # HIDE ADMIN
 # --------------------------------------------------------------------------------
-HIDE_ADMIN_ALLOWED_IPS = json.loads(env('DJANGO_ADMIN_WHITELIST_IPS'))
+HIDE_ADMIN_ALLOWED_IPS = env('DJANGO_ADMIN_WHITELIST_IPS').split(",")
 
 # REST FRAMEWORK
 # --------------------------------------------------------------------------------
