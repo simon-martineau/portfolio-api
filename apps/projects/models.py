@@ -32,6 +32,9 @@ class Gallery(models.Model):
     """Model for the gallery object"""
     pictures = models.ManyToManyField('Picture')
 
+    class Meta:
+        verbose_name_plural = "galleries"
+
     def __str__(self):
         return f'{self.pk}: {self.project}'
 

@@ -33,6 +33,7 @@ WSGI_APPLICATION = 'projects_api.wsgi.application'
 # APPS
 # ------------------------------------------------------------------------------------------
 INSTALLED_APPS = [
+    'baton',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,12 +46,13 @@ INSTALLED_APPS = [
     'apps.core',
     'apps.users',
     'apps.projects',
+
+    'baton.autodiscover',
 ]
 
 # REST_FRAMEWORK
 # ------------------------------------------------------------------------------------------
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': ['rest_framework_simplejwt.authentication.JWTAuthentication'],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 10
 }
@@ -136,3 +138,13 @@ CSRF_COOKIE_HTTPONLY = True
 SECURE_BROWSER_XSS_FILTER = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#x-frame-options
 X_FRAME_OPTIONS = 'DENY'
+
+# BATON
+# ------------------------------------------------------------------------------------------
+BATON = {
+    'SITE_HEADER': 'Projects api',
+    'SITE_TITLE': 'Projects api',
+    'INDEX_TITLE': 'Root',
+    'GRAVATAR_DEFAULT_IMG': 'robohash',
+}
+
