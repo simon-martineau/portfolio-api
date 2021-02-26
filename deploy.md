@@ -18,6 +18,7 @@ sudo dokku postgres:link drs-database projects-api
 Also, point your app to the environment variables file:
 ```shell script
 sudo dokku config:set projects-api ENV_PATH=instance/production.env
+sudo dokku config:set projects-api DJANGO_SETTINGS_MODULE=projects_api.settings.production
 ```
 
 Also, set your domains for the app like this: (and don't forget to point your dns records to the dokku host,
