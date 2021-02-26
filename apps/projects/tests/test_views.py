@@ -17,7 +17,7 @@ class TagViewsetTests(APITestCase):
     @staticmethod
     def get_tag_url(tag: Tag):
         return reverse('tag-detail', args=(tag.pk,))
-    
+
     @property
     def tag_list_url(self):
         return reverse('tag-list')
@@ -31,8 +31,8 @@ class TagViewsetTests(APITestCase):
         self.assertStrictAllIn(('id', 'name', 'color'), res.data)
 
     def test_list_tag_succeeds(self):
-        tag1 = self.factory.tag()
-        tag2 = self.factory.tag()
+        self.factory.tag()
+        self.factory.tag()
         res = self.client.get(self.tag_list_url)
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         self.assertEqual(len(res.data), 2)
@@ -48,6 +48,7 @@ class TagViewsetTests(APITestCase):
 
 class ProjectViewsetTests(APITestCase):
     """Tests for the project viewset"""
+
     def setUp(self):
         self.factory = ProjectFactory()
 
@@ -81,8 +82,8 @@ class ProjectViewsetTests(APITestCase):
 
     def test_get_project_list_succeeds(self):
         """Test that listing projects succeeds"""
-        project1 = self.factory.project()
-        project2 = self.factory.project()
+        self.factory.project()
+        self.factory.project()
         res = self.client.get(self.project_list_url)
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         self.assertEqual(len(res.data), 2)

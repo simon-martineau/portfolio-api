@@ -44,4 +44,3 @@ class ProjectListSerializer(serializers.ModelSerializer):
         model = models.Project
         fields = ('id', 'href', 'title', 'description', 'link', 'tags', 'thumbnail')
         depth = 1
-
