@@ -1,5 +1,7 @@
 language: minimal
 
+env:
+    - CODECOV_TOKEN=4c363003-37f7-4c50-85c0-4bf55ef120aa
 
 services:
     - docker

@@ -3,3 +3,4 @@
 django-debug-toolbar==3.2  # https://github.com/jazzband/django-debug-toolbar
 flake8==3.8.4  # https://github.com/PyCQA/flake8
 psycopg2-binary==2.8.6
+coverage==5.4
