@@ -36,7 +36,6 @@ STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/static/'
 DEFAULT_FILE_STORAGE = "portfolio_api.utils.storages.MediaRootS3Boto3Storage"
 MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/media/'
 
-
 # MIDDLEWARE
 # --------------------------------------------------------------------------------
 MIDDLEWARE.insert(1, 'apps.core.middleware.HideAdminMiddleware')  # Insert after security middleware
@@ -59,6 +58,19 @@ SECURE_SSL_REDIRECT = True
 # https://docs.djangoproject.com/en/3.1/ref/settings/#secure-proxy-ssl-header
 # This tells django that requests with this header are secure (https is handled by the proxy)
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# CORS
+# --------------------------------------------------------------------------------
+MIDDLEWARE.insert(0, 'corsheaders.middleware.CorsMiddleware')
+INSTALLED_APPS += ['corsheaders']
+
+CORS_ALLOWED_ORIGINS = [
+    'https://simonmartineau.dev'
+]
+
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^(https?://(?:.+\.)?localhost(?::\d{1,5})?)$"
+]
 
 # DATABASE
 # --------------------------------------------------------------------------------
