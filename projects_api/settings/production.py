@@ -33,7 +33,7 @@ STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/static/'
 
 # MEDIA
 # ---------------------------
-DEFAULT_FILE_STORAGE = "portfolio_api.utils.storages.MediaRootS3Boto3Storage"
+DEFAULT_FILE_STORAGE = "apps.core.utils.storages.MediaRootS3Boto3Storage"
 MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/media/'
 
 # MIDDLEWARE
